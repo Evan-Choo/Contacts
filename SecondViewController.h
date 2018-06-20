@@ -10,6 +10,29 @@
 
 @interface SecondViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *phoneNumLable;
+
+//number buttons
+-(IBAction)clickDigit :(UIButton*)sender;
+
+//click *
+-(IBAction)clickAsterisk:(UIButton*)sender;
+
+//click #
+-(IBAction)clickWell:(UIButton*)sender;
+
+//dialer button
+-(IBAction)clickDial:(UIButton*)sender;
+
+//delete button
+-(IBAction)clickDelete:(UIButton*)sender;
+
+//all clear
+-(IBAction)clickAllClear:(UIButton*)sender;
+
+//save as contact
+-(IBAction)clickSave:(UIButton*)sender;
+
 
 @end
 
