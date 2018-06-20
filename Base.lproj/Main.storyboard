@@ -59,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="100" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vVb-cq-KIS" id="5Rh-fV-Ixn">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -67,7 +67,7 @@
                                         <rect key="frame" x="0.0" y="144" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCR-rB-C12" id="ViQ-on-Yvf">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="1711.875" y="-660.21126760563379"/>
         </scene>
-        <!--Yellow Pages-->
+        <!--Third View Controller-->
         <scene sceneID="UoA-tf-UPm">
             <objects>
                 <viewController id="3B7-1B-xMP" customClass="ThirdViewController" sceneMemberID="viewController">
@@ -96,21 +96,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-WQ-TTH">
-                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Yellow Pages" image="third" id="biN-ct-D5F"/>
+                    <toolbarItems>
+                        <barButtonItem title="back" id="AD2-f5-foj">
+                            <connections>
+                                <action selector="goBack" destination="JHK-WQ-TTH" id="0mT-Aq-xht"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JCH-Du-zLA"/>
+                        <barButtonItem title="refresh" id="X5Y-L7-OPO">
+                            <connections>
+                                <action selector="reload" destination="JHK-WQ-TTH" id="kYC-f7-e39"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="LWj-GD-ic1"/>
+                        <barButtonItem title="stop" id="qZb-mm-lkg">
+                            <connections>
+                                <action selector="stopLoading" destination="JHK-WQ-TTH" id="bkf-l6-Gyg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="DOi-5i-cCp"/>
+                        <barButtonItem title="forward" id="i1B-dG-MJq">
+                            <connections>
+                                <action selector="goForward" destination="JHK-WQ-TTH" id="P6C-XL-N1A"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="PIm-gX-jPk"/>
                     <connections>
+                        <outlet property="backButton" destination="AD2-f5-foj" id="Ies-cf-aDj"/>
+                        <outlet property="forwardButton" destination="i1B-dG-MJq" id="XKe-Cq-UGU"/>
+                        <outlet property="refreshButton" destination="X5Y-L7-OPO" id="jZ8-vp-0pz"/>
+                        <outlet property="stopButton" destination="qZb-mm-lkg" id="UZp-m6-moK"/>
                         <outlet property="yellowPageWeb" destination="JHK-WQ-TTH" id="8EV-mK-j8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9g-tt-CvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791.25" y="64.436619718309856"/>
+            <point key="canvasLocation" x="1788.75" y="64.436619718309856"/>
         </scene>
         <!--Dialer-->
         <scene sceneID="wg7-f3-ORb">
@@ -381,9 +410,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRd-3x-OH6">
                                 <rect key="frame" x="30" y="28" width="221" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES"/>
-                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -429,7 +455,7 @@
                     <connections>
                         <segue destination="JmT-Yg-Ddj" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="3B7-1B-xMP" kind="relationship" relationship="viewControllers" id="U2o-Pc-nQo"/>
+                        <segue destination="cVg-Mu-9W2" kind="relationship" relationship="viewControllers" id="U2o-Pc-nQo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -454,6 +480,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JkP-om-Lt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="793" y="-659"/>
+        </scene>
+        <!--Yellow Pages-->
+        <scene sceneID="mKz-gc-0jM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" toolbarHidden="NO" id="cVg-Mu-9W2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Yellow Pages" image="third" id="biN-ct-D5F"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="trb-Ro-xGt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0nZ-dB-rgf">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="3B7-1B-xMP" kind="relationship" relationship="rootViewController" id="vbH-wZ-RIj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l3H-7s-fXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="791.25" y="64.436619718309856"/>
         </scene>
     </scenes>
     <resources>

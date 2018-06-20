@@ -15,6 +15,12 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *yellowPageWeb;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *refreshButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *stopButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardButton;
+
+-(void)updateButtons;
 @end
 
 
