@@ -7,6 +7,8 @@
 //
 
 #import "SecondViewController.h"
+#import "DialerAddViewController.h"
+#import "AddContactViewController.h"
 
 @interface SecondViewController ()
 
@@ -69,17 +71,25 @@
 //process dial
 -(IBAction)clickDial:(UIButton *)sender
 {
+    UIWebView *callWebView = [[UIWebView alloc]init];
+    [callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",[phoneNumLable text]]]]];
     
+    [[UIApplication sharedApplication].keyWindow addSubview:callWebView];
 }
 
 //delete digit
 -(IBAction)clickDelete:(UIButton*)sender
 {
-    NSRange range;
-    range.location = display.length-1;
-    range.length = 1;
-    [display deleteCharactersInRange:range];
-    [phoneNumLable setText:display];
+    NSLog(@"-%@-", phoneNumLable.text);
+    
+    if([phoneNumLable.text compare:@""]!=NSOrderedSame)
+    {
+        NSRange range;
+        range.location = display.length-1;
+        range.length = 1;
+        [display deleteCharactersInRange:range];
+        [phoneNumLable setText:display];
+    }
 }
 
 //all clear
@@ -93,7 +103,12 @@
 //save as contact
 -(IBAction)clickSave:(UIButton *)sender
 {
+    DialerAddViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"DialerAddContact"];
     
+    c.input = self.phoneNumLable.text;
+    NSLog(@"[dialerAdd] input: %@", c.input);
+    
+    [self presentViewController:c animated:YES completion:nil];
 }
 
 
